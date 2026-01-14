@@ -17,7 +17,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    padding: 1.5rem 0;
+    padding: 1.5rem 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -36,12 +36,13 @@ header nav ul {
 header nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block;
 }
 
 header nav ul li a::after {
@@ -73,7 +74,7 @@ header nav ul li a:hover::after {
 }
 
 .intro {
-    font-size: 1.3rem;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
     text-align: center;
     color: #cccccc;
     margin-bottom: 3rem;
@@ -85,7 +86,7 @@ header nav ul li a:hover::after {
 }
 
 .heading {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 3rem;
     background: linear-gradient(135deg, #00bfff 0%, #87ceeb 100%);
@@ -145,32 +146,33 @@ header nav ul li a:hover::after {
 .backend h3,
 .db h3,
 .Ai_deployment h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     color: #00bfff;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .frontend h3::before {
     content: '🎨';
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
 .backend h3::before {
     content: '⚙️';
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
 .db h3::before {
     content: '💾';
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
 .Ai_deployment h3::before {
     content: '🤖';
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
 }
 
 .frontend p,
@@ -178,7 +180,7 @@ header nav ul li a:hover::after {
 .db p,
 .Ai_deployment p {
     color: #cccccc;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
     margin-bottom: 0.8rem;
     line-height: 1.7;
 }
@@ -193,7 +195,7 @@ header nav ul li a:hover::after {
 
 footer {
     background: rgba(0, 0, 0, 0.9);
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     border-top: 2px solid #00bfff;
     margin-top: auto;
 }
@@ -210,7 +212,7 @@ footer ul {
 footer ul li a {
     color: #cccccc;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     transition: color 0.3s ease;
 }
 
@@ -221,8 +223,9 @@ footer ul li a:hover {
 footer p {
     text-align: center;
     color: #888888;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     margin-top: 1rem;
+    padding: 0 1rem;
 }
 
 @keyframes fadeIn {
@@ -256,7 +259,95 @@ footer p {
     }
 }
 
-@media (max-width: 768px) {
+/* Large Desktop Screens (1440px and above) */
+@media (min-width: 1440px) {
+    header {
+        padding: 2rem 2rem;
+    }
+    
+    header nav ul {
+        gap: 4rem;
+    }
+    
+    .main {
+        max-width: 1400px;
+        padding: 4rem 2rem;
+    }
+    
+    .intro {
+        padding: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .heading {
+        margin-bottom: 4rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    footer {
+        padding: 2.5rem 1rem;
+    }
+    
+    footer ul {
+        gap: 3rem;
+    }
+}
+
+/* Standard Desktop (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .main {
+        padding: 3rem 2rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 2rem;
+    }
+}
+
+/* Tablet Landscape (900px - 1024px) */
+@media (max-width: 1024px) {
+    header nav ul {
+        gap: 2rem;
+    }
+    
+    .main {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .intro {
+        padding: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .heading {
+        margin-bottom: 2.5rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+}
+
+/* Tablet Portrait (768px - 900px) */
+@media (max-width: 900px) {
+    header {
+        padding: 1.2rem 1rem;
+    }
+    
     header nav ul {
         gap: 1.5rem;
     }
@@ -266,12 +357,12 @@ footer p {
     }
 
     .intro {
-        font-size: 1.1rem;
         padding: 1rem;
+        margin-bottom: 2rem;
     }
 
     .heading {
-        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     .frontend,
@@ -279,23 +370,195 @@ footer p {
     .db,
     .Ai_deployment {
         padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Mobile and Small Tablets (600px - 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0.75rem;
+    }
+    
+    header nav ul {
+        gap: 1rem;
+        row-gap: 0.75rem;
     }
 
-    .frontend h3,
-    .backend h3,
-    .db h3,
-    .Ai_deployment h3 {
-        font-size: 1.5rem;
+    .main {
+        padding: 2rem 1rem;
     }
 
-    .frontend p,
-    .backend p,
-    .db p,
-    .Ai_deployment p {
-        font-size: 1rem;
+    .intro {
+        padding: 1rem;
+        border-left-width: 3px;
+    }
+
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 1.5rem;
+        border-radius: 12px;
     }
 
     footer ul {
         gap: 1.5rem;
+    }
+}
+
+/* Mobile Devices (480px - 600px) */
+@media (max-width: 600px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    header nav ul li a {
+        display: block;
+        padding: 0.75rem 1rem;
+    }
+    
+    .main {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .intro {
+        padding: 1rem 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .heading {
+        margin-bottom: 1.5rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .frontend h3,
+    .backend h3,
+    .db h3,
+    .Ai_deployment h3 {
+        gap: 0.4rem;
+    }
+    
+    footer {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    footer ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    footer ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 0.8rem 0.5rem;
+    }
+    
+    header nav ul li a {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .main {
+        padding: 1.25rem 0.5rem;
+    }
+    
+    .intro {
+        padding: 0.875rem 0.625rem;
+        margin-bottom: 1.25rem;
+        border-radius: 6px;
+    }
+    
+    .heading {
+        margin-bottom: 1.25rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+    
+    .frontend h3,
+    .backend h3,
+    .db h3,
+    .Ai_deployment h3 {
+        gap: 0.3rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .frontend p,
+    .backend p,
+    .db p,
+    .Ai_deployment p {
+        margin-bottom: 0.6rem;
+    }
+    
+    footer {
+        padding: 1.25rem 0.5rem;
+    }
+    
+    footer ul {
+        gap: 0.75rem;
+    }
+}
+
+/* Extra Small Devices (below 320px) */
+@media (max-width: 320px) {
+    header nav ul li a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.6rem;
+    }
+    
+    .main {
+        padding: 1rem 0.4rem;
+    }
+    
+    .intro {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 0.875rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .frontend h3::before,
+    .backend h3::before,
+    .db h3::before,
+    .Ai_deployment h3::before {
+        font-size: 1rem;
+    }
+    
+    footer p {
+        font-size: 0.75rem;
     }
 }

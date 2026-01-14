@@ -17,7 +17,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    padding: 1.5rem 0;
+    padding: 1.5rem 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -36,12 +36,13 @@ header nav ul {
 header nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block;
 }
 
 header nav ul li a::after {
@@ -73,7 +74,7 @@ section {
 }
 
 .heading {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #00bfff 0%, #87ceeb 100%);
@@ -84,11 +85,12 @@ section {
 }
 
 .description {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     text-align: center;
     color: #cccccc;
     margin-bottom: 3rem;
     animation: fadeIn 1s ease;
+    padding: 0 1rem;
 }
 
 .projects {
@@ -135,7 +137,7 @@ section {
 }
 
 .projects > div h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     color: #00bfff;
     margin-bottom: 0;
     grid-column: 1 / -1;
@@ -161,7 +163,7 @@ section {
 
 .projects > div p {
     color: #cccccc;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
     margin-bottom: 1rem;
     line-height: 1.7;
     grid-column: 1;
@@ -193,28 +195,9 @@ section {
     margin-left: 0.7rem;
 }
 
-@media (max-width: 768px) {
-    .projects > div {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    
-    .projects > div img {
-        grid-column: 1;
-        grid-row: auto;
-        width: 100%;
-        height: 200px;
-        margin: 0 auto;
-    }
-    
-    .projects > div p {
-        grid-column: 1;
-    }
-}
-
 footer {
     background: rgba(0, 0, 0, 0.9);
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     border-top: 2px solid #00bfff;
     margin-top: auto;
 }
@@ -231,7 +214,7 @@ footer ul {
 footer ul li a {
     color: #cccccc;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     transition: color 0.3s ease;
 }
 
@@ -242,8 +225,9 @@ footer ul li a:hover {
 footer p {
     text-align: center;
     color: #888888;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     margin-top: 1rem;
+    padding: 0 1rem;
 }
 
 @keyframes fadeInDown {
@@ -278,7 +262,81 @@ footer p {
     }
 }
 
-@media (max-width: 768px) {
+/* Large Desktop Screens (1440px and above) */
+@media (min-width: 1440px) {
+    header {
+        padding: 2rem 2rem;
+    }
+    
+    header nav ul {
+        gap: 4rem;
+    }
+    
+    section {
+        max-width: 1400px;
+        padding: 4rem 2rem;
+    }
+    
+    .projects {
+        gap: 2.5rem;
+    }
+    
+    .projects > div img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    footer {
+        padding: 2.5rem 1rem;
+    }
+    
+    footer ul {
+        gap: 3rem;
+    }
+}
+
+/* Standard Desktop (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    section {
+        padding: 3rem 2rem;
+    }
+    
+    .projects {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+/* Tablet Landscape (900px - 1024px) */
+@media (max-width: 1024px) {
+    header nav ul {
+        gap: 2rem;
+    }
+    
+    section {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .projects {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .projects > div {
+        padding: 1.5rem;
+    }
+    
+    .projects > div img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* Tablet Portrait (768px - 900px) */
+@media (max-width: 900px) {
+    header {
+        padding: 1.2rem 1rem;
+    }
+    
     header nav ul {
         gap: 1.5rem;
     }
@@ -287,31 +345,188 @@ footer p {
         padding: 2rem 1rem;
     }
 
-    .heading {
-        font-size: 2rem;
+    .description {
+        margin-bottom: 2rem;
     }
 
-    .description {
-        font-size: 1.1rem;
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile and Small Tablets (600px - 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0.75rem;
+    }
+    
+    header nav ul {
+        gap: 1rem;
+        row-gap: 0.75rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
     }
 
     .projects {
         grid-template-columns: 1fr;
     }
 
-    .projects > div h3 {
-        font-size: 1.5rem;
+    .projects > div {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 1.5rem;
     }
-
-    .projects > div p {
-        font-size: 1rem;
-    }
-
+    
     .projects > div img {
+        grid-column: 1;
+        grid-row: auto;
+        width: 100%;
+        max-width: 300px;
         height: 200px;
+        margin: 1rem auto;
+        justify-self: center;
+    }
+    
+    .projects > div p {
+        grid-column: 1;
     }
 
     footer ul {
         gap: 1.5rem;
+    }
+}
+
+/* Mobile Devices (480px - 600px) */
+@media (max-width: 600px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    header nav ul li a {
+        display: block;
+        padding: 0.75rem 1rem;
+    }
+    
+    section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .description {
+        margin-bottom: 1.5rem;
+    }
+    
+    .projects {
+        gap: 1.25rem;
+    }
+    
+    .projects > div {
+        padding: 1.25rem;
+    }
+    
+    .projects > div img {
+        height: 180px;
+    }
+    
+    footer {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    footer ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    footer ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 0.8rem 0.5rem;
+    }
+    
+    header nav ul li a {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    section {
+        padding: 1.25rem 0.5rem;
+    }
+    
+    .heading {
+        margin-bottom: 0.75rem;
+    }
+    
+    .description {
+        margin-bottom: 1.25rem;
+        padding: 0 0.5rem;
+    }
+    
+    .projects {
+        gap: 1rem;
+    }
+    
+    .projects > div {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .projects > div img {
+        height: 160px;
+        max-width: 250px;
+        border-radius: 8px;
+    }
+    
+    .projects > div a {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+    
+    footer {
+        padding: 1.25rem 0.5rem;
+    }
+    
+    footer ul {
+        gap: 0.75rem;
+    }
+}
+
+/* Extra Small Devices (below 320px) */
+@media (max-width: 320px) {
+    header nav ul li a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.6rem;
+    }
+    
+    section {
+        padding: 1rem 0.4rem;
+    }
+    
+    .projects > div {
+        padding: 0.875rem;
+    }
+    
+    .projects > div img {
+        height: 140px;
+        max-width: 200px;
+    }
+    
+    footer p {
+        font-size: 0.75rem;
     }
 }
