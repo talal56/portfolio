@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #00bfff;
+    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.2);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00bfff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00bfff;
+}
+
+header nav ul li a:hover::after {
+    width: 80%;
+}
+
+.main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    width: 100%;
+}
+
+.intro {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(0, 191, 255, 0.05);
+    border-left: 4px solid #00bfff;
+    border-radius: 8px;
+    animation: fadeIn 0.8s ease;
+}
+
+.heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #00bfff 0%, #87ceeb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInDown 1s ease;
+}
+
+.frontend,
+.backend,
+.db,
+.Ai_deployment {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease;
+}
+
+.frontend::before,
+.backend::before,
+.db::before,
+.Ai_deployment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.frontend:hover::before,
+.backend:hover::before,
+.db:hover::before,
+.Ai_deployment:hover::before {
+    left: 100%;
+}
+
+.frontend:hover,
+.backend:hover,
+.db:hover,
+.Ai_deployment:hover {
+    border-color: #00bfff;
+    background: rgba(0, 191, 255, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+}
+
+.frontend h3,
+.backend h3,
+.db h3,
+.Ai_deployment h3 {
+    font-size: 1.8rem;
+    color: #00bfff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.frontend h3::before {
+    content: '🎨';
+    font-size: 1.5rem;
+}
+
+.backend h3::before {
+    content: '⚙️';
+    font-size: 1.5rem;
+}
+
+.db h3::before {
+    content: '💾';
+    font-size: 1.5rem;
+}
+
+.Ai_deployment h3::before {
+    content: '🤖';
+    font-size: 1.5rem;
+}
+
+.frontend p,
+.backend p,
+.db p,
+.Ai_deployment p {
+    color: #cccccc;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.frontend strong,
+.backend strong,
+.db strong,
+.Ai_deployment strong {
+    color: #00bfff;
+    font-weight: 600;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem 0;
+    border-top: 2px solid #00bfff;
+    margin-top: auto;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #00bfff;
+}
+
+footer p {
+    text-align: center;
+    color: #888888;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        gap: 1.5rem;
+    }
+
+    .main {
+        padding: 2rem 1rem;
+    }
+
+    .intro {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .frontend,
+    .backend,
+    .db,
+    .Ai_deployment {
+        padding: 1.5rem;
+    }
+
+    .frontend h3,
+    .backend h3,
+    .db h3,
+    .Ai_deployment h3 {
+        font-size: 1.5rem;
+    }
+
+    .frontend p,
+    .backend p,
+    .db p,
+    .Ai_deployment p {
+        font-size: 1rem;
+    }
+
+    footer ul {
+        gap: 1.5rem;
+    }
+}
